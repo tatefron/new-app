@@ -1,0 +1,182 @@
+@import '~@angular/material/theming';
+@import url('http://fonts.cdnfonts.com/css/rubik');
+
+$toolbar-breakpoint: 600px;
+
+$fa-font-path: '~@fortawesome/fontawesome-free-webfonts/webfonts';
+
+$link-hover-decoration: none;
+$label-margin-bottom: 0;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$success-colors: mat-palette($mat-green, 400);
+$warning-colors: mat-palette($mat-amber, 400);
+
+/*general*/
+@mixin flexible() {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+h1 {
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin-bottom: 0;
+}
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 0;
+  color: #000;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 0;
+}
+
+@mixin flexible() {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.background {
+  padding: 80px 0 0 0;
+  position: relative;
+  font-family: 'Rubik', sans-serif;
+  background-size: cover;
+  min-height: calc(100vh - 64px);
+  padding: 15px;
+  padding-right: 70px;
+  background: url('./assets/img/bg/bg-main.png') no-repeat center top;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-size: cover;
+    content: '';
+    z-index: 0;
+  }
+
+  .gradient {
+    &::before {
+      position: absolute;
+      top: 51%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: '';
+      z-index: 0;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+}
+/*general-end*/
+
+.mat-tab-links {
+  flex-direction: column;
+}
+.mat-tab-link-container{
+  overflow: visible!important;
+}
+
+/*table - left*/
+.search-table {
+  position: relative;
+  max-width: calc(100% - 16px);
+  input {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    border-radius: 8px;
+    border: 1px solid #fff;
+    padding: 3px 30px 3px 10px;
+    width: 100%;
+
+    outline: none;
+    &::placeholder {
+      font-size: 14px;
+      line-height: 17px;
+      color: #6f7498;
+    }
+  }
+  span {
+    background: url(/img/table/search.svg) no-repeat center;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    display: block;
+    right: 0;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/*table - right*/
+.table-inner {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 18px 0;
+  margin-bottom: 0;
+  height: calc(100vh - 128px - 48px);
+
+  .to_home {
+    padding-right: 5px;
+  }
+}
+.mat-ink-bar {
+  background-color: transparent !important;
+}
+.default-theme .mat-tab-nav-bar,
+.default-theme .mat-tab-header {
+  border-bottom: unset !important;
+}
+
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
+  display: none!important;
+}

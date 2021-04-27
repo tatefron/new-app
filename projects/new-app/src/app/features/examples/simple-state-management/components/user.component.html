@@ -1,0 +1,185 @@
+<div class="">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="table-inner">
+        <div class="table-inner_top d-flex justify-content-between w-100">
+          <div class="breadcrumbs">
+            <a href="" class="to_home">
+              <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 1L2 5.5M2 5.5L6.5 10M2 5.5H12" stroke="#999999" stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
+            </a>
+            <ul>
+              <li>
+                <a href="">
+                  Espace personnel
+                </a>
+              </li>
+              <li class="is-icon _files">
+                <a href="">
+                  Application
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="table-tools d-flex">
+            <ul class="table-edit m-0">
+              <li class="import-button"><a href="">Importer</a></li>
+              <li class="folder-button"><a href="">Nouveau dossier</a></li>
+            </ul>
+            <div class="table-filling d-flex flex-row">
+              <div class="circle-bar">
+                <span></span>
+              </div>
+              <div class="d-flex flex-column ">
+                <span style="width:99.9%" data-value="863">Utilisé</span>
+                <progress max="1000" value="863" class="progress">
+                  <div class="progress-bar">
+                    <span style="width: 86.3%">863 Mo</span>
+                  </div>
+                </progress>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="table-inner_bottom" [ngClass]="routeAnimationsElements" >
+          <table *ngIf="users$ | async as users" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Propriétaire</th>
+              <th>Accès</th>
+              <th>Taille</th>
+              <th></th>
+            </tr>
+<!--            <tr *ngFor="let user of users; trackBy: trackByUserId" [ngClass]="routeAnimationsElements">-->
+              <tr class="row-folder">
+                <td>
+                <span>Module SMS</span>
+                  <!--                 <img mat-card-avatar src="https://source.unsplash.com/200x200/?{{ user.username }}"/>
+                                {{ user.name }} {{ user.surname }}
+                             <mat-card-subtitle>@{{ user.username }}</mat-card-subtitle>-->
+                </td>
+              <td>20 Dec 2019  21:16</td>
+              <td>Moi</td>
+              <td>Only me</td>
+              <td>540 Mo</td>
+              <td>
+<!--                <button mat-button (click)="editUser(user)">Edit</button>-->
+                <button class="table_download-button" href=""><img src="./assets/img/table/download.svg"></button>
+                <button class="table_edit-button" href=""><img src="./assets/img/table/dots.svg"></button>
+<!--                <button class="table_delete-button" mat-button (click)="removeUser(user.id)">Delete</button>-->
+                <button class="table_delete-button" mat-button >Delete</button>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+        <div class="table-inner_bottom empty">
+          <div class="empty_table">
+            <div class="empty_table-inner">
+              <a href="">Upload file</a> or
+              <a href="">Create new folder</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+<!--      <h1 rtl class="main-heading">-->
+<!--        {{ 'anms.examples.simple-state-management.title' | translate }}-->
+<!--      </h1>-->
+    </div>
+  </div>
+<!--  <div class="row" [ngClass]="routeAnimationsElements" rtl>-->
+<!--    <div class="col-md-12 col-lg-6">    -->
+<!--      <ng-container *ngIf="isEdit$ | async as isEdit">-->
+<!--      <h2 *ngIf="!isEdit.value">{{'anms.examples.simple-state-management.form.add.title' | translate}}</h2>-->
+<!--      <h2 *ngIf="isEdit.value">{{'anms.examples.simple-state-management.form.edit.title' | translate}}</h2>-->
+<!--      <form [formGroup]="userForm" #userFormRef="ngForm" (ngSubmit)="onSubmit(userFormRef)">-->
+<!--        <mat-form-field>-->
+<!--          <input-->
+<!--            matInput-->
+<!--            [placeholder]="-->
+<!--              ('anms.examples.simple-state-management.username' | translate) + '*'-->
+<!--            "-->
+<!--            formControlName="username"-->
+<!--          />-->
+<!--          <mat-error *ngIf="userForm.get('username').hasError('minlength')">-->
+<!--            {{'anms.examples.simple-state-management.validator.minlength' | translate:{minlength: userForm.get('username').errors.minlength.requiredLength} }}-->
+<!--          </mat-error>-->
+<!--          <mat-error *ngIf="userForm.get('username').hasError('required')">-->
+<!--            {{'anms.examples.simple-state-management.validator.required' | translate}}-->
+<!--          </mat-error>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field>-->
+<!--          <input-->
+<!--            matInput-->
+<!--            [placeholder]="-->
+<!--              ('anms.examples.simple-state-management.name' | translate) + '*'-->
+<!--            "-->
+<!--            formControlName="name"-->
+<!--          />-->
+<!--          <mat-error *ngIf="userForm.get('name').hasError('minlength')">-->
+<!--            {{'anms.examples.simple-state-management.validator.minlength' | translate:{minlength: userForm.get('name').errors.minlength.requiredLength} }}-->
+<!--          </mat-error>-->
+<!--          <mat-error *ngIf="userForm.get('name').hasError('required')">-->
+<!--            {{'anms.examples.simple-state-management.validator.required' | translate}}-->
+<!--          </mat-error>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field>-->
+<!--          <input-->
+<!--            matInput-->
+<!--            [placeholder]="-->
+<!--              ('anms.examples.simple-state-management.surname' | translate) + '*'-->
+<!--            "-->
+<!--            formControlName="surname"-->
+<!--          />-->
+<!--          <mat-error *ngIf="userForm.get('surname').hasError('minlength')">-->
+<!--            {{'anms.examples.simple-state-management.validator.minlength' | translate:{minlength: userForm.get('surname').errors.minlength.requiredLength} }}-->
+<!--          </mat-error>-->
+<!--          <mat-error *ngIf="userForm.get('surname').hasError('required')">-->
+<!--            {{'anms.examples.simple-state-management.validator.required' | translate}}-->
+<!--          </mat-error>-->
+<!--        </mat-form-field>-->
+<!--        <div>-->
+<!--          <button *ngIf="!isEdit.value" type="submit" mat-raised-button color="primary">-->
+<!--            {{'anms.examples.simple-state-management.form.add.submit' | translate}}-->
+<!--          </button>-->
+<!--          <button *ngIf="isEdit.value" type="submit" mat-raised-button color="primary">-->
+<!--            {{'anms.examples.simple-state-management.form.edit.submit' | translate}}-->
+<!--          </button>-->
+<!--          <button type="reset" mat-button color="warn">Reset</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--      </ng-container>-->
+<!--    </div>-->
+<!--    <div class="col-md-12 col-lg-6" [ngClass]="routeAnimationsElements">-->
+<!--      <p>{{ 'anms.examples.simple-state-management.text1' | translate }}</p>-->
+<!--      <p>{{ 'anms.examples.simple-state-management.text2' | translate }}</p>-->
+<!--      <p>-->
+<!--        {{ 'anms.examples.simple-state-management.text3' | translate }}-->
+<!--        <code>@angular-extensions/model</code>-->
+<!--      </p>-->
+<!--      <p>{{ 'anms.examples.simple-state-management.text4' | translate }}</p>-->
+<!--      <p>-->
+<!--        {{ 'anms.examples.simple-state-management.text5' | translate }}-->
+<!--        <a href="https://github.com/angular-extensions/model" rel="noopener noreferrer" target="_blank">{{-->
+<!--          'anms.examples.simple-state-management.text6' | translate-->
+<!--        }}</a>-->
+<!--      </p>-->
+<!--      <p>-->
+<!--        {{ 'anms.examples.simple-state-management.text7' | translate }}-->
+<!--        <code>ng add @angular-extensions/model</code> &-->
+<!--        <code>ng g @angular-extensions/model:model examples/user &#45;&#45;items</code>-->
+<!--      </p>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>

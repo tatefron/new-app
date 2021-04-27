@@ -1,0 +1,295 @@
+<div [class]="'theme-wrapper ' + (theme$ | async)">
+
+  <mat-sidenav-container>
+
+    <mat-sidenav #sidenav mode="push">
+      <div class="branding"><img [src]="logo" [alt]="logo"/>
+        <span>{{ 'anms.title.short' | translate}}</span></div>
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let item of navigationSideMenu" (click)="sidenav.close()" [routerLink]="[item.link]"
+          routerLinkActive="active">
+          {{item.label | translate}}
+        </a>
+<!--        <a mat-list-item href="https://github.com/tomastrajan/new-app" target="_blank" rel="noopener noreferrer">-->
+<!--          Github-->
+<!--        </a>-->
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <div class="wrapper">
+
+      <div class="toolbar" [style.position]="(stickyHeader$ | async) ? 'fixed' : 'inherit'" [class.mat-elevation-z4]="(stickyHeader$ | async)">
+        <mat-toolbar color="primary" class="toolbar-inner header-left d-flex flex-wrap align-items-stretch">
+          <span class="top-menu d-flex">
+            <button mat-button class="nav-button mr-0" *ngFor="let item of navigation" [routerLink]="[item.link]"
+                    routerLinkActive="active">
+              {{item.label | translate}}
+            </button>
+          </span>
+          <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+            <fa-icon icon="bars"></fa-icon>
+
+          </button>
+
+          <span routerLink="" class="branding spacer center d-inline d-sm-none">
+            <img [src]="logo" [alt]="logo"/>
+          </span>
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none">
+              <img [src]="logo" [alt]="logo"/>
+            {{'anms.title.short' | translate }}
+          </span>
+          <span routerLink="" class="branding spacer d-none d-md-inline p-0">
+            			<div class="top-tabs d-flex flex-wrap">
+                    <div class="top-tab">
+                      <img class="top-tab-img" src="./assets/img/header/cart.png">
+                      <span>Store</span>
+                      <svg class="close-tab" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.293044 6.29289C-0.09748 6.68342 -0.09748 7.31658 0.293044 7.70711C0.683569 8.09763 1.31673 8.09763 1.70726 7.70711L4 5.41436L6.29289 7.70726C6.68342 8.09778 7.31658 8.09778 7.70711 7.70726C8.09763 7.31673 8.09763 6.68357 7.70711 6.29304L5.41421 4.00015L7.70726 1.70711C8.09778 1.31658 8.09778 0.683418 7.70726 0.292893C7.31673 -0.097631 6.68357 -0.0976313 6.29304 0.292893L4 2.58594L1.70711 0.293044C1.31658 -0.0974801 0.683418 -0.0974801 0.292893 0.293044C-0.0976311 0.683569 -0.0976311 1.31673 0.292893 1.70726L2.58579 4.00015L0.293044 6.29289Z" fill="white" fill-opacity="0.25"/>
+                      </svg>
+                    </div>
+                    <div class="top-tab d-flex flex-wrap">
+                      <img class="top-tab-img" src="./assets/img/header/star.png">
+                      <span>Banque Documentaire</span>
+                      <svg class="close-tab" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.293044 6.29289C-0.09748 6.68342 -0.09748 7.31658 0.293044 7.70711C0.683569 8.09763 1.31673 8.09763 1.70726 7.70711L4 5.41436L6.29289 7.70726C6.68342 8.09778 7.31658 8.09778 7.70711 7.70726C8.09763 7.31673 8.09763 6.68357 7.70711 6.29304L5.41421 4.00015L7.70726 1.70711C8.09778 1.31658 8.09778 0.683418 7.70726 0.292893C7.31673 -0.097631 6.68357 -0.0976313 6.29304 0.292893L4 2.58594L1.70711 0.293044C1.31658 -0.0974801 0.683418 -0.0974801 0.292893 0.293044C-0.0976311 0.683569 -0.0976311 1.31673 0.292893 1.70726L2.58579 4.00015L0.293044 6.29289Z" fill="white" fill-opacity="0.25"/>
+                      </svg>
+                    </div>
+                    <div class="top-tab d-flex flex-wrap">
+                      <img class="top-tab-img" src="./assets/img/header/color.png">
+                      <span>Agenda</span>
+                      <svg class="close-tab" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.293044 6.29289C-0.09748 6.68342 -0.09748 7.31658 0.293044 7.70711C0.683569 8.09763 1.31673 8.09763 1.70726 7.70711L4 5.41436L6.29289 7.70726C6.68342 8.09778 7.31658 8.09778 7.70711 7.70726C8.09763 7.31673 8.09763 6.68357 7.70711 6.29304L5.41421 4.00015L7.70726 1.70711C8.09778 1.31658 8.09778 0.683418 7.70726 0.292893C7.31673 -0.097631 6.68357 -0.0976313 6.29304 0.292893L4 2.58594L1.70711 0.293044C1.31658 -0.0974801 0.683418 -0.0974801 0.292893 0.293044C-0.0976311 0.683569 -0.0976311 1.31673 0.292893 1.70726L2.58579 4.00015L0.293044 6.29289Z" fill="white" fill-opacity="0.25"/>
+                      </svg>
+                    </div>
+                  </div>
+<!--            <img [src]="logo"[alt]="logo" />-->
+<!--            {{ 'anms.title.long' | translate}}-->
+          </span>
+
+            <button class="info-buttons">
+              <img src="./assets/img/header/question.png">
+            </button>
+            <button class="info-buttons">
+              <img src="./assets/img/header/bell.png">
+            </button>
+            <button class="info-buttons" >
+              <img src="./assets/img/header/gear.png">
+            </button>
+            <button class="info-buttons" mat-button mat-stroked-button color="accent" *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
+<!--              {{ 'anms.menu.login' | translate }}-->
+              <img src="./assets/img/header/person.png">
+            </button>
+            <button class="info-buttons" *ngIf="(isAuthenticated$ | async)"
+                    mat-icon-button
+                    [matMenuTriggerFor]="toolbarUserMenu">
+              <fa-icon icon="user-circle"></fa-icon>
+            </button>
+
+            <mat-menu #toolbarUserMenu="matMenu">
+              <button mat-menu-item (click)="onLogoutClick()">
+                <mat-icon><fa-icon icon="power-off"></fa-icon></mat-icon>
+                <span>{{ 'anms.menu.logout' | translate }}</span>
+              </button>
+            </mat-menu>
+
+<!--          <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">-->
+<!--            <fa-icon icon="cog"></fa-icon>-->
+<!--          </button>-->
+
+<!--          <a [matTooltip]="'anms.header.github' | translate"-->
+<!--             matTooltipPosition="before"-->
+<!--             mat-icon-button-->
+<!--             class="link d-none d-sm-inline"-->
+<!--             href="https://github.com/tomastrajan/new-app"-->
+<!--             target="_blank" rel="noopener noreferrer">-->
+<!--            <fa-icon [icon]="['fab','github']"></fa-icon>-->
+<!--          </a>-->
+
+<!--          <span *ngIf="language$ | async as language">-->
+<!--            <mat-select [ngModel]="language" (selectionChange)="onLanguageSelect($event)">-->
+<!--              <mat-option *ngFor="let l of languages" [value]="l">-->
+<!--                {{ l.toUpperCase() }}-->
+<!--              </mat-option>-->
+<!--            </mat-select>-->
+<!--          </span>-->
+        </mat-toolbar>
+      </div>
+
+      <div class="content background" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+
+
+      <div class="chat">
+        <a class="chat-nav chat-open" href=""><img src="./assets/img/chat/open-chat.png"></a>
+        <a class="chat-nav" href=""><img src="./assets/img/chat/search-chat.svg"></a>
+        <div class="chat-list">
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+          <a href=""><img src="./assets/img/chat/list/Avatar-1.png"></a>
+        </div>
+      </div>
+      <div class="chat-block">
+        <div class="chat-block_top-wrapper">
+          <div class="chat-block_top d-flex">
+            <a class="chat-back"><img src="./assets/img/chat/back.svg"></a>
+            <div class="chat-tabs row m-0">
+              <div class="chat-tab col-4">
+                <a href=""><img src="./assets/img/chat/recent.png">Récent</a>
+              </div>
+              <div class="chat-tab col-4">
+                <img src="./assets/img/chat/contacts.png">
+                <a href="">Contacts</a>
+              </div>
+              <div class="chat-tab col-4">
+                <img src="./assets/img/chat/keyboard.png">
+                <a href="">Clavier</a>
+              </div>
+            </div>
+          </div>
+          <div class="chat_i">
+            <div class="chat_i-t d-flex justify-content-between">
+              <a href=""><img src="./assets/img/chat/back-in_chat.svg"></a>
+              <img src="./assets/img/chat/ava/Avatar-1.png">
+              <div class="chat_i-t-r">
+                <a href=""><img src="./assets/img/chat/search-in_chat.svg"></a>
+                <a href=""><img src="./assets/img/chat/more.svg"></a>
+              </div>
+            </div>
+            <div class="chat_i-bottom text-center">
+              <div class="chat-name">Panteleimon Ibragimovich</div>
+              <div class="chat-call d-flex justify-content-center">
+                <a href=""><img src="./assets/img/chat/phone.svg"></a>
+                <a href=""><img src="./assets/img/chat/video.svg"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-type_wrapper">
+          <div class="chat-history">
+            <span>2 FEB</span>
+            <div class="chat-m-wrapper chat-m-l">
+              <div class="chat-text">I want to add fancy icons. Do you have any icon set?</div>
+              <time>15:41</time>
+            </div>
+            <div class="chat-m-wrapper chat-m-r">
+              <div class="chat-text">I’m designing something. When do you need them?</div>
+              <time>15:41</time>
+            </div>
+            <span>3 FEB</span>
+            <div class="chat-m-wrapper chat-m-l chat-m-item">
+              <div class="chat-text chat-incoming">
+                Incoming call
+                <span>4 min 35 s</span>
+              </div>
+              <time>15:41</time>
+            </div>
+            <div class="chat-m-wrapper chat-m-l chat-m-item">
+              <div class="chat-text chat-missed">
+                Missed call
+              </div>
+              <time>15:41</time>
+            </div>
+            <div class="chat-m-wrapper chat-m-r chat-m-item">
+              <div class="chat-text chat-uncoming">
+                Upcoming call
+                <span>4 min 35 s</span>
+              </div>
+              <time>15:41</time>
+            </div>
+            <div class="chat-m-wrapper chat-m-l chat-audio">
+              <div class="chat-text">
+                <audio preload="auto" controls>
+                  <source src="http://osvaldas.info/examples/audio-player-responsive-and-touch-friendly/audio.mp3" />
+                </audio>
+              </div>
+              <div class="with-trash">
+                <img src="./assets/img/chat/trash.svg">
+                <time>15:41</time>
+              </div>
+            </div>
+            <div class="chat-m-wrapper chat-m-r chat-audio">
+              <div class="chat-text">
+                <audio preload="auto" controls>
+                  <source src="http://osvaldas.info/examples/audio-player-responsive-and-touch-friendly/audio.mp3" />
+                </audio>
+              </div>
+              <div class="with-trash">
+                <img src="./assets/img/chat/trash.svg">
+                <time>15:41</time>
+              </div>
+            </div>
+            <span>4 FEB</span>
+            <div class="chat-m-wrapper chat-m-l chat-m-item">
+              <div class="chat-text chat-download">
+                <a href="./assets/img/chat/file/New_document.pdf" download target="_blank">
+                  New_document.pdf
+                </a>
+                <span>20,3 KB</span>
+              </div>
+              <time>15:41</time>
+            </div>
+            <div class="chat-m-wrapper chat-m-r chat-m-item">
+              <div class="chat-text chat-downloaded">
+                <a href="./assets/img/chat/file/New_document.pdf" target="_blank">
+                  New_document.pdf
+                </a>
+                <span>20,3 KB</span>
+              </div>
+              <time>15:41</time>
+            </div>
+          </div>
+          <div class="chat-type">
+            <div class="chat-type-l">
+              <a href=""><img class="chat-smile" src="./assets/img/chat/smile.svg"></a>
+              <input class="message" type="text" name="">
+            </div>
+            <div class="chat-type-r">
+              <a href=""><img src="./assets/img/chat/clip.svg"></a>
+              <a href=""><img src="./assets/img/chat/record.svg"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="footer">
+<!--        <div class="row">-->
+<!--          <div class="col-12 signature">-->
+<!--            {{year}}-->
+
+<!--            <a [matTooltip]="'anms.footer.changelog' | translate"-->
+<!--               matTooltipPosition="before"-->
+<!--               href="https://github.com/tomastrajan/new-app/blob/master/CHANGELOG.md">-->
+<!--              <fa-icon icon="rocket"></fa-icon>-->
+<!--              {{version}} <span *ngIf="!isProd">[{{envName}}]</span>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+
+    </div>
+
+  </mat-sidenav-container>
+
+</div>

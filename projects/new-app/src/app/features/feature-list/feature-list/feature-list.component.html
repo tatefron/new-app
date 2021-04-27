@@ -1,0 +1,54 @@
+<div class="">
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <h1 rtl class="main-heading">{{ 'anms.features.title' | translate }}</h1>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <!--      home-->
+  <div class="home">
+     <div class="row">
+      <div *ngFor="let feature of features" class="home-block col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
+        <div class="">
+          <h2>
+            {{feature.name | translate}}
+          </h2>
+          <div class="home-content row">
+            <div class="home-bar col-7">
+              <div class="home-bar_inner"></div>
+            </div>
+            <div class="home-bar col-5">
+              <div class="home-bar_inner"></div>
+            </div>
+            <div class="home-bar col-7">
+              <div class="home-bar_inner"></div>
+            </div>
+          </div>
+        </div>
+
+<!--        <mat-card>-->
+<!--          <mat-card-title>-->
+<!--            <code *ngIf="feature.version">{{feature.version}}</code>{{feature.name | translate}}-->
+<!--          </mat-card-title>-->
+<!--          <mat-card-subtitle rtl>-->
+<!--            {{ feature.description | translate }}-->
+<!--          </mat-card-subtitle>-->
+<!--          <mat-card-actions>-->
+<!--            <a *ngIf="feature.github" mat-icon-button [href]="feature.github" rel="noopener noreferrer" target="_blank">-->
+<!--              <fa-icon [icon]="['fab','github']"></fa-icon>-->
+<!--            </a>-->
+<!--            <a mat-button [href]="feature.documentation" rel="noopener noreferrer" target="_blank">-->
+<!--              <fa-icon icon="book"></fa-icon>{{ 'anms.features.documentation' | translate }}-->
+<!--            </a>-->
+<!--            <a *ngIf="feature.medium" mat-button [href]="feature.medium" rel="noopener noreferrer" target="_blank">-->
+<!--              <fa-icon [icon]="['fab','medium-m']"></fa-icon>{{ 'anms.features.guide' | translate }}-->
+<!--            </a>-->
+<!--          </mat-card-actions>-->
+<!--        </mat-card>-->
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

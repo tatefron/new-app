@@ -1,0 +1,144 @@
+<div class="" rtl>
+<!--  <h1>{{ 'anms.examples.crud.title' | translate }}</h1>-->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-inner groupes">
+        <div class="table-inner_top d-flex justify-content-between w-100 align-items-lg-center">
+          <div class="breadcrumbs">
+            <a href="" class="to_home">
+              <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 1L2 5.5M2 5.5L6.5 10M2 5.5H12" stroke="#999999" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <ul>
+              <li >
+                <a href="">
+                  Espace personnel
+                </a>
+              </li>
+              <li class="is-icon _person">
+                <a href="">
+                  Groupes
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="table-tools d-flex">
+            <ul class="table-edit m-0">
+              <li class="group-button">
+                <button type="button" mat-fab color="primary" class="add" [ngClass]="routeAnimationsElements"
+                        *ngIf="!isEditing" (click)="addNew()">
+                  Créer un groupe
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 add-group">
+            <span class="d-flex justify-content-between add-group_edit">
+  <!--            <h2>{{ 'anms.examples.crud.subtitle2' | translate }}</h2>-->
+              <span class="d-flex justify-content-end">
+                <span *ngIf="selectedBook$ | async as selectedBook">
+                  <button mat-icon-button color="accent" *ngIf="!isEditing">
+                    <fa-icon icon="edit" (click)="edit(selectedBook)" [matTooltip]="'anms.examples.crud.tooltip.edit' | translate"
+                             matTooltipPosition="above">
+                    </fa-icon>
+                  </button>
+                  <button mat-icon-button color="warn" (click)="delete(selectedBook)">
+                    <fa-icon icon="trash" [matTooltip]="'anms.examples.crud.tooltip.delete' | translate"
+                             matTooltipPosition="above">
+                    </fa-icon>
+                  </button>
+                  <button mat-icon-button (click)="deselect()">
+                    <fa-icon icon="times" [matTooltip]="'anms.examples.crud.tooltip.deselect' | translate"
+                             matTooltipPosition="above">
+                    </fa-icon>
+                  </button>
+                </span>
+              </span>
+            </span>
+
+            <form class="add-group_form" [formGroup]="bookFormGroup" [style.display]="isEditing ? 'block' : 'none'"
+                  [ngClass]="routeAnimationsElements">
+
+              <div class="row">
+                <mat-form-field class="col">
+                  <input matInput placeholder="{{ 'anms.examples.crud.placeholder1' | translate }}"
+                         formControlName="title" required autofocus>
+                  <mat-error *ngIf="bookFormGroup.get('title').invalid">
+                    {{ 'anms.examples.crud.placeholder1' | translate }}
+                    {{ 'anms.examples.crud.error' | translate }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col">
+                  <input type="number" matInput placeholder="{{ 'anms.examples.crud.placeholder2' | translate }}"
+                         formControlName="author" required>
+                  <mat-error *ngIf="bookFormGroup.get('author').hasError('required')">
+                    {{ 'anms.examples.crud.placeholder2' | translate }}
+                    {{ 'anms.examples.crud.error' | translate }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+<!--              <div class="row">-->
+<!--                <mat-form-field class="col">-->
+<!--              <textarea matInput placeholder="{{ 'anms.examples.crud.placeholder3' | translate }}"-->
+<!--                        formControlName="description" rows="5"></textarea>-->
+<!--                  <mat-error *ngIf="bookFormGroup.get('description').invalid">-->
+<!--                    {{ 'anms.examples.crud.placeholder1' | translate }}-->
+<!--                    {{ 'anms.examples.crud.error' | translate }}-->
+<!--                  </mat-error>-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+              <div class="row">
+                <div class="col-12 d-flex justify-content-between">
+                  <button (click)="save()" mat-raised-button color="primary">
+                    {{'anms.examples.crud.save' | translate }}
+                  </button>
+                  <button (click)="cancelEditing()" mat-raised-button>
+                    {{'anms.examples.crud.cancel' | translate }}
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <ng-container *ngIf="!isEditing">
+              <div class="add-group_form" [ngClass]="routeAnimationsElements" *ngIf="selectedBook$ | async as selectedBook; else noSelectedBookTmpl">
+                <h3>{{ selectedBook.title }}</h3>
+                <mat-divider></mat-divider>
+                <p>{{ selectedBook.description }}</p>
+                <i>{{ selectedBook.author }}</i>
+              </div>
+
+              <ng-template #noSelectedBookTmpl>
+  <!--              <p [ngClass]="routeAnimationsElements">-->
+  <!--                {{'anms.examples.crud.text' | translate }} <code>@ngrx/entity</code>.-->
+  <!--              </p>-->
+              </ng-template>
+            </ng-container>
+        </div>
+        <div class="table-inner_bottom">
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Members</th>
+              <th></th>
+            </tr>
+            <tr class="row-group" *ngFor="let book of books$ | async" [ngClass]="routeAnimationsElements"
+                      (click)=select(book)>
+              <td><span>{{book.title}}</span></td>
+              <td>{{book.author}}</td>
+              <td>
+                <button class="table_edit-button" href=""><img src="./assets/img/table/dots.svg"></button>
+              </td>
+            </tr>
+            <p class="empty_table-inner" *ngIf="(books$ | async)?.length === 0">{{'anms.examples.crud.empty' | translate}}</p>
+             </table>
+        </div>
+      </div>
+<!--      <h2>{{ 'anms.examples.crud.subtitle1' | translate }}</h2>-->
+    </div>
+  </div>
+</div>

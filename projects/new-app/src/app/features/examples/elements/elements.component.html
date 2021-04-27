@@ -1,0 +1,103 @@
+<div class="">
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <h1 class="main-heading" rtl>-->
+<!--        {{ 'anms.examples.elements.title' | translate }}-->
+<!--      </h1>-->
+<!--    </div>-->
+<!--  </div>-->
+  <div class="row" [ngClass]="routeAnimationsElements" rtl>
+
+    <div class="col-md-12" [ngClass]="routeAnimationsElements">
+      <div class="table-inner groupes design">
+        <div class="table-inner_top d-flex justify-content-between align-items-center w-100">
+          <div class="breadcrumbs">
+            <a href="" class="to_home">
+              <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 1L2 5.5M2 5.5L6.5 10M2 5.5H12" stroke="#999999" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <ul>
+              <li >
+                <a href="">
+                  Espace personnel
+                </a>
+              </li>
+              <li class="is-icon _person">
+                <a href="">
+                  Groupes
+                </a>
+              </li>
+              <li class="">
+                <a href="">
+                  Design Team
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="table-tools d-flex">
+            <ul class="table-edit m-0">
+              <li class="group-button">
+                <button type="button" mat-fab color="primary" class="add" [ngClass]="routeAnimationsElements"
+                        >
+                  Créer un groupe
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+
+        <div class="table-inner_bottom">
+          <div class="design-inner">
+            <div class="d-flex">
+              <h2>Design Team</h2>
+              <img src="./assets/img/table/dots-grey.svg">
+            </div>
+            <div class="d-flex align-items-center mt-4">
+              <a href="" class="d-flex align-items-center mr-4">
+                <div class="ava">
+                  <img src="./assets/img/table/ava/avatar-1.png">
+                  <img src="./assets/img/table/ava/avatar-2.png">
+                  <img src="./assets/img/table/ava/avatar-3.png">
+                </div>
+                5 members
+                <svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 9.50034V12H2.49966L9.87199 4.62767L7.37233 2.12801L0 9.50034ZM11.8051 2.6946C11.8669 2.63293 11.9159 2.55968 11.9493 2.47904C11.9828 2.3984 12 2.31196 12 2.22466C12 2.13736 11.9828 2.05092 11.9493 1.97028C11.9159 1.88964 11.8669 1.81639 11.8051 1.75472L10.2453 0.194936C10.1836 0.133142 10.1104 0.0841172 10.0297 0.0506674C9.94908 0.0172176 9.86264 0 9.77534 0C9.68804 0 9.6016 0.0172176 9.52096 0.0506674C9.44032 0.0841172 9.36707 0.133142 9.3054 0.194936L8.08557 1.41477L10.5852 3.91443L11.8051 2.6946Z" fill="#5A5EF8"/>
+                </svg>
+              </a>
+              <a href="">+ Add documents</a>
+            </div>
+
+            <h3>Documents accessible pour groupe:</h3>
+          </div>
+          <table class="table w-100">
+            <tr>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Taille</th>
+              <th></th>
+            </tr>
+            <tr class="row-folder">
+              <td><span>Module SMS</span></td>
+              <td>20 Dec 2019  21:16</td>
+              <th>540 Mo</th>
+              <td>
+                <a href=""><img src="./assets/img/table/dots.svg"></a>
+              </td>
+            </tr>
+            <tr class="row-file">
+              <td><span>Fiche Technique</span></td>
+              <td>20 Dec 2019  21:16</td>
+              <th>540 Mo</th>
+              <td>
+                <a href=""><img src="./assets/img/table/dots.svg"></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

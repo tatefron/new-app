@@ -1,0 +1,52 @@
+<div class="table-wrapper">
+  <div class="table-top d-flex justify-content-between align-items-center">
+    <h1>Banque Documentaire</h1>
+    <div class="table-icons">
+      <a href="" class="table-l-r"><img src="./assets/img/table/copy.png">
+        <div class="table-l-r_toggle">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Tile Window to Left of Screen</label>
+            <span> Tile Window to Right of Screen</span>
+          </div>
+
+        </div>
+
+      </a>
+      <a href=""><img src="./assets/img/table/delete.png"></a>
+    </div>
+  </div>
+  <div class="row table-bottom">
+    <div class="table-menu col-2 pr-0">
+      <div class="search-table d-flex">
+        <input  type="search" placeholder="Search">
+        <span>
+          <img src="./assets/img/table/search.svg">
+        </span>
+      </div>
+      <nav mat-tab-nav-bar class="d-none d-sm-flex table-menu_list">
+        <a mat-tab-link
+           *ngFor="let e of examples"
+           [routerLink]="e.link"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive"
+           [disabled]="e.auth && !(isAuthenticated$ | async)">
+          {{e.label | translate}}
+        </a>
+      </nav>
+      <nav class="nav-responsive d-sm-none d-flex justify-content-center">
+          <mat-select [placeholder]="'anms.examples.title' | translate" [value]="'todos'">
+            <mat-option *ngFor="let e of examples"
+              [value]="e"
+              [routerLink]="e.link"
+              [disabled]="e.auth && !(isAuthenticated$ | async)">
+                {{e.label | translate}}
+            </mat-option>
+          </mat-select>
+      </nav>
+    </div>
+      <div class="table-bottom_wrapper col-10 pl-0" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+  </div>
+</div>
